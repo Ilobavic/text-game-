@@ -274,3 +274,299 @@ body {
     align-items: stretch;
   }
 }
+
+.battle,
+.stats-page,
+.inventory-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+.section-head,
+.battle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.section-kicker {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  margin: 0 0 6px;
+}
+
+.section-sub {
+  color: var(--muted);
+  max-width: 520px;
+  margin: 0;
+}
+
+.battle-header h2,
+.section-head h2 {
+  margin: 0 0 8px;
+}
+
+.battle-tags,
+.section-cta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.battle-tags span,
+.section-pill {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  background: rgba(12, 107, 255, 0.12);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.section-pill.ghost {
+  background: rgba(26, 31, 43, 0.08);
+  color: var(--ink);
+}
+
+.battle-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.panel {
+  background: var(--card);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.1);
+}
+
+.panel.enemy {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.panel.log {
+  background: #f8fafc;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.panel-pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  background: rgba(12, 107, 255, 0.12);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.panel-pill.warning {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.stat-block {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.panel.enemy .stat-label {
+  color: rgba(248, 250, 252, 0.7);
+}
+
+.stat-track {
+  height: 8px;
+  border-radius: 999px;
+  background: #e5eaf4;
+  overflow: hidden;
+}
+
+.panel.enemy .stat-track {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.stat-track span {
+  display: block;
+  height: 100%;
+  background: var(--accent);
+}
+
+.stat-track.stamina span {
+  background: var(--accent-2);
+}
+
+.stat-track.danger span {
+  background: #f43f5e;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.stat-value {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.panel.enemy .stat-value {
+  color: #f8fafc;
+}
+
+.action-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.action-grid .MuiButton-root {
+  justify-content: space-between;
+  text-transform: none;
+  border-radius: 14px;
+  padding: 12px 16px;
+  background: var(--accent);
+  box-shadow: none;
+}
+
+.action-grid .MuiButton-root.Mui-disabled {
+  opacity: 0.6;
+  color: #fff;
+}
+
+.action-title {
+  font-weight: 700;
+}
+
+.action-meta {
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.enemy-card {
+  margin-top: 8px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.enemy-title {
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.enemy-sub {
+  margin: 0 0 12px;
+  color: rgba(248, 250, 252, 0.7);
+}
+
+.enemy-moves {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.enemy-moves span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(248, 250, 252, 0.15);
+  font-size: 0.75rem;
+}
+
+.log-list {
+  display: grid;
+  gap: 8px;
+  max-height: 320px;
+  overflow: auto;
+}
+
+.log-item {
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #eef2ff;
+  color: #1e293b;
+  font-size: 0.9rem;
+}
+
+.stats-grid,
+.inventory-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.stats-list {
+  display: grid;
+  gap: 14px;
+}
+
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip-row span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(12, 107, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.bar-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.equip-list,
+.inventory-list {
+  display: grid;
+  gap: 14px;
+}
+
+.equip-name {
+  margin: 0 0 4px;
+  font-weight: 700;
+}
+
+.currency-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: rgba(12, 107, 255, 0.08);
+}
+
+@media (max-width: 720px) {
+  .section-head,
+  .battle-header {
+    flex-direction: column;
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
