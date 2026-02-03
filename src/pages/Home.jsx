@@ -103,29 +103,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="features">
-        <div className="feature-card">
-          <h3>Readable Combat</h3>
-          <p>
-            Clear turn logs, distinct skill costs, and fast feedback keep battles
-            punchy.
-          </p>
-        </div>
-        <div className="feature-card">
-          <h3>Mobile-first Flow</h3>
-          <p>
-            Buttons are thumb-friendly, cards stack cleanly, and typography
-            stays crisp.
-          </p>
-        </div>
-        <div className="feature-card">
-          <h3>Expandable World</h3>
-          <p>
-            Built to grow into quests, loot tables, and party systems without
-            rewrites.
-          </p>
-        </div>
-      </section>
     </div>
   );
 }
