@@ -12,10 +12,10 @@ export default function Home() {
         <div className="hero-grid">
           <div className="hero-copy">
             <div className="hero-tag">Abysspark Chronicles</div>
-            <h1>Forge your legend in a tide-lit RPG.</h1>
+            <h1>Ignite the abyss. Command the tide.</h1>
             <p className="hero-sub">
-              Fast, strategic encounters with tight, readable combat flow. Built
-              to feel snappy on desktop and effortless on mobile.
+              Abysspark blends rapid, readable combat with a moody oceanic
+              atmosphere. Every choice lands fast, on desktop or mobile.
             </p>
 
             <Stack className="hero-actions" spacing={2} direction="row">
