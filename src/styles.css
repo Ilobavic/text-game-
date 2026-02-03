@@ -26,6 +26,16 @@ body {
   display: block;
 }
 
+.nav-links {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-toggle {
+  display: none;
+}
+
 .boot-screen {
   position: fixed;
   inset: 0;
@@ -464,6 +474,14 @@ body {
 
   .quest-actions {
     width: 100%;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
   }
 }
 
