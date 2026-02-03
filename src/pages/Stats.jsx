@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Stats() {
+  const player = JSON.parse(localStorage.getItem("playerProfile") || "null");
   return (
     <div className="stats-page">
       <div className="section-head">
@@ -23,15 +24,27 @@ export default function Stats() {
           <div className="stats-list">
             <div>
               <div className="stat-label">Health</div>
-              <div className="stat-value">40</div>
+              <div className="stat-value">
+                {player?.maxHealth ?? 40}
+              </div>
             </div>
             <div>
               <div className="stat-label">Armor</div>
-              <div className="stat-value">2</div>
+              <div className="stat-value">{player?.armor ?? 2}</div>
             </div>
             <div>
               <div className="stat-label">Stamina</div>
-              <div className="stat-value">10</div>
+              <div className="stat-value">
+                {player?.maxStamina ?? 10}
+              </div>
+            </div>
+            <div>
+              <div className="stat-label">Level</div>
+              <div className="stat-value">{player?.level ?? 1}</div>
+            </div>
+            <div>
+              <div className="stat-label">Perk Points</div>
+              <div className="stat-value">{player?.perkPoints ?? 0}</div>
             </div>
           </div>
         </div>

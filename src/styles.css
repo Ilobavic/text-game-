@@ -563,6 +563,12 @@ body {
   font-weight: 600;
 }
 
+.stat-value.subtle {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
 .panel.enemy .stat-value {
   color: #f8fafc;
 }

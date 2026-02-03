@@ -8,6 +8,15 @@ export function createDefaultPlayer() {
     maxStamina: 10,
     shield: 0,
     statuses: [],
+    level: 1,
+    xp: 0,
+    nextLevelXp: 50,
+    perkPoints: 0,
+    perks: {
+      vigor: 0,
+      focus: 0,
+      flow: 0,
+    },
     skills: [
       {
         name: "Water Jet",
@@ -48,6 +57,7 @@ export function createDefaultEnemy() {
     armor: 1,
     shield: 0,
     statuses: [],
+    xpReward: 35,
   };
 }
 
@@ -159,4 +169,32 @@ export function applySkill(player, enemy, skill) {
   }
 
   return { player: newPlayer, enemy: newEnemy, logs };
+}
+
+export function applyXp(player, amount) {
+  let updated = { ...player, xp: player.xp + amount };
+  const logs = [];
+  let leveled = false;
+
+  while (updated.xp >= updated.nextLevelXp) {
+    updated = {
+      ...updated,
+      xp: updated.xp - updated.nextLevelXp,
+      level: updated.level + 1,
+      nextLevelXp: Math.round(updated.nextLevelXp * 1.25 + 20),
+      perkPoints: (updated.perkPoints || 0) + 1,
+      maxHealth: updated.maxHealth + 4,
+      maxStamina: updated.maxStamina + 1,
+    };
+    updated.health = updated.maxHealth;
+    updated.stamina = updated.maxStamina;
+    leveled = true;
+    logs.push(`Level up! You are now level ${updated.level}.`);
+  }
+
+  if (!leveled) {
+    logs.push(`You gained ${amount} XP.`);
+  }
+
+  return { player: updated, logs };
 }

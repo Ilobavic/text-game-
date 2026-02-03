@@ -8,10 +8,21 @@ import {
   applyDamage,
   hasStatus,
   tickStatuses,
+  applyXp,
 } from "../game/combat";
 
 export default function Battle() {
-  const [player, setPlayer] = useState(createDefaultPlayer());
+  const [player, setPlayer] = useState(() => {
+    const stored = localStorage.getItem("playerProfile");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (e) {
+        return createDefaultPlayer();
+      }
+    }
+    return createDefaultPlayer();
+  });
   const [enemy, setEnemy] = useState(createDefaultEnemy());
   const [log, setLog] = useState(["Battle start!"]);
 
@@ -85,10 +96,15 @@ export default function Battle() {
 
     if (nextEnemy.health <= 0) {
       addLog(`You defeated ${nextEnemy.name}!`);
+      const xpAward = nextEnemy.xpReward || 20;
+      const xpResult = applyXp(nextPlayer, xpAward);
+      nextPlayer = xpResult.player;
+      xpResult.logs.forEach(addLog);
     }
 
     setPlayer(nextPlayer);
     setEnemy(nextEnemy);
+    localStorage.setItem("playerProfile", JSON.stringify(nextPlayer));
   }
 
   return (
@@ -151,6 +167,27 @@ export default function Battle() {
                 <div>
                   <div className="stat-label">Shield</div>
                   <div className="stat-value">{player.shield || 0}</div>
+                </div>
+                <div>
+                  <div className="stat-label">Level</div>
+                  <div className="stat-value">{player.level}</div>
+                </div>
+              </div>
+              <div className="stat-block">
+                <div>
+                  <div className="stat-label">XP</div>
+                  <div className="stat-track">
+                    <span
+                      style={{
+                        width: `${
+                          (player.xp / (player.nextLevelXp || 1)) * 100
+                        }%`,
+                      }}
+                    />
+                  </div>
+                </div>
+                <div className="stat-value subtle">
+                  {player.xp}/{player.nextLevelXp} XP
                 </div>
               </div>
               <div className="status-row">
