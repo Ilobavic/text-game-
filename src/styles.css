@@ -410,7 +410,8 @@ body {
 .battle,
 .stats-page,
 .inventory-page,
-.world-page {
+.world-page,
+.story-page {
   max-width: 1100px;
   margin: 0 auto;
   padding: 32px 16px 48px;
@@ -681,6 +682,17 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.choice-list {
+  display: grid;
+  gap: 12px;
 }
 
 .quest-list {

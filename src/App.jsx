@@ -6,6 +6,7 @@ import Battle from "./pages/Battle";
 import Stats from "./pages/Stats";
 import Inventory from "./pages/Inventory";
 import World from "./pages/World";
+import Story from "./pages/Story";
 
 export default function App() {
   const [booting, setBooting] = useState(true);
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/stats" element={<Stats />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/world" element={<World />} />
+          <Route path="/story" element={<Story />} />
         </Routes>
       </main>
     </div>

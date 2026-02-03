@@ -116,6 +116,20 @@ export default function World() {
           </div>
         </section>
 
+        <section className="panel">
+          <h3>Factions</h3>
+          <div className="stats-list">
+            <div>
+              <div className="stat-label">Depth Guild</div>
+              <div className="stat-value">{world.factions.depth}</div>
+            </div>
+            <div>
+              <div className="stat-label">Spark Order</div>
+              <div className="stat-value">{world.factions.spark}</div>
+            </div>
+          </div>
+        </section>
+
         <section className="panel log">
           <h3>World Log</h3>
           <div className="log-list">

@@ -5,6 +5,12 @@ export function createDefaultWorld() {
       { name: "Healing Scroll", qty: 1 },
       { name: "Coral Shard", qty: 2 },
     ],
+    factions: {
+      depth: 0,
+      spark: 0,
+    },
+    flags: {},
+    storyNode: "start",
     quests: [
       {
         id: "tide-01",
