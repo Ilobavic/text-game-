@@ -64,12 +64,25 @@ body {
 
 .boot-ring {
   position: absolute;
-  width: 220px;
-  height: 220px;
   border-radius: 50%;
   border: 2px solid rgba(99, 102, 241, 0.35);
   box-shadow: 0 0 40px rgba(99, 102, 241, 0.35);
   animation: ringSpin 2.6s linear infinite;
+}
+
+.boot-ring.outer {
+  width: 240px;
+  height: 240px;
+  border-color: rgba(12, 107, 255, 0.35);
+  box-shadow: 0 0 60px rgba(12, 107, 255, 0.35);
+}
+
+.boot-ring.inner {
+  width: 170px;
+  height: 170px;
+  border-color: rgba(33, 209, 162, 0.35);
+  box-shadow: 0 0 50px rgba(33, 209, 162, 0.35);
+  animation: ringSpinReverse 1.9s linear infinite;
 }
 
 .boot-text {
@@ -106,6 +119,15 @@ body {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes ringSpinReverse {
+  0% {
+    transform: rotate(0deg) translateZ(0);
+  }
+  100% {
+    transform: rotate(-360deg) translateZ(0);
   }
 }
 

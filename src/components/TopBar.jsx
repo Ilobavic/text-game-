@@ -20,8 +20,8 @@ export default function TopBar() {
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <span className="app-logo">
-            <img src={logo} alt="Text RPG logo" />
-            Text RPG
+            <img src={logo} alt="Abysspark logo" />
+            Abysspark
           </span>
         </Typography>
 

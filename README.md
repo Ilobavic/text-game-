@@ -1,4 +1,4 @@
-# Text RPG (Web)
+# Abysspark (Web)
 
 Minimal Vite + React prototype of a text-based, turn-based RPG.
 

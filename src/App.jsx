@@ -19,7 +19,8 @@ export default function App() {
       {booting && (
         <div className="boot-screen">
           <div className="boot-orb" />
-          <div className="boot-ring" />
+          <div className="boot-ring outer" />
+          <div className="boot-ring inner" />
           <div className="boot-text">
             Loading tide streams<span className="boot-dots" />
           </div>

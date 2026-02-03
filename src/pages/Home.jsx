@@ -11,8 +11,8 @@ export default function Home() {
         <div className="hero-bg" />
         <div className="hero-grid">
           <div className="hero-copy">
-            <div className="hero-tag">Tidecaller Chronicles</div>
-            <h1>Forge your legend in a text-first RPG.</h1>
+            <div className="hero-tag">Abysspark Chronicles</div>
+            <h1>Forge your legend in a tide-lit RPG.</h1>
             <p className="hero-sub">
               Fast, strategic encounters with tight, readable combat flow. Built
               to feel snappy on desktop and effortless on mobile.
