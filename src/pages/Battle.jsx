@@ -10,6 +10,7 @@ import {
   tickStatuses,
   applyXp,
 } from "../game/combat";
+import { loadWorld, saveWorld, updateQuest, addLoot } from "../game/world";
 
 export default function Battle() {
   const [player, setPlayer] = useState(() => {
@@ -100,6 +101,35 @@ export default function Battle() {
       const xpResult = applyXp(nextPlayer, xpAward);
       nextPlayer = xpResult.player;
       xpResult.logs.forEach(addLog);
+
+      const world = loadWorld();
+      let updatedWorld = {
+        ...world,
+        flags: { ...(world.flags || {}), gnarlDefeated: true },
+        log: [
+          `Defeated ${nextEnemy.name}. The coast stirs.`,
+          ...world.log,
+        ].slice(0, 30),
+      };
+      const tideQuest = updatedWorld.quests.find((q) => q.id === "tide-01");
+      if (tideQuest && tideQuest.status === "active") {
+        updatedWorld = updateQuest(updatedWorld, "tide-01", "completed");
+        updatedWorld = {
+          ...updatedWorld,
+          inventory: addLoot(
+            updatedWorld.inventory,
+            tideQuest.reward.loot || []
+          ),
+          log: [
+            `Quest complete: ${tideQuest.title}.`,
+            ...updatedWorld.log,
+          ].slice(0, 30),
+        };
+      }
+      if (updatedWorld.storyNode === "start") {
+        updatedWorld = { ...updatedWorld, storyNode: "rift-gate" };
+      }
+      saveWorld(updatedWorld);
     }
 
     setPlayer(nextPlayer);
