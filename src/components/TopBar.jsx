@@ -4,13 +4,25 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { Link as RouterLink } from "react-router-dom";
+import logo from "../assets/logo.svg";
 
 export default function TopBar() {
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      sx={{
+        background: "#f8fafc",
+        color: "inherit",
+        boxShadow: "none",
+        borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
+      }}
+    >
       <Toolbar>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-          Text RPG
+          <span className="app-logo">
+            <img src={logo} alt="Text RPG logo" />
+            Text RPG
+          </span>
         </Typography>
 
         <Button color="inherit" component={RouterLink} to="/">

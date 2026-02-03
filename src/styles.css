@@ -13,6 +13,18 @@ body {
   background: var(--bg);
   color: var(--ink);
 }
+
+.app-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-logo img {
+  width: 26px;
+  height: 26px;
+  display: block;
+}
 .app-root {
   display: flex;
   flex-direction: column;
