@@ -405,6 +405,66 @@ body {
     flex-direction: column;
     align-items: stretch;
   }
+
+  .main {
+    padding: 12px;
+  }
+
+  .hero-grid,
+  .battle-grid,
+  .stats-grid,
+  .inventory-grid,
+  .world-grid,
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(1.9rem, 6vw, 2.4rem);
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .preview-card {
+    padding: 14px;
+  }
+
+  .section-head,
+  .battle-header {
+    gap: 10px;
+  }
+
+  .section-sub {
+    font-size: 0.95rem;
+  }
+
+  .action-grid .MuiButton-root {
+    padding: 10px 14px;
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .quest-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quest-meta {
+    width: 100%;
+    justify-items: start;
+  }
+
+  .quest-actions {
+    width: 100%;
+  }
 }
 
 .battle,

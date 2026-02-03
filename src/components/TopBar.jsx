@@ -17,7 +17,7 @@ export default function TopBar() {
         borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
       }}
     >
-      <Toolbar>
+      <Toolbar sx={{ flexWrap: "wrap", gap: 1, py: 1 }}>
         <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           <span className="app-logo">
             <img src={logo} alt="Abysspark logo" />
@@ -25,22 +25,27 @@ export default function TopBar() {
           </span>
         </Typography>
 
-        <Button color="inherit" component={RouterLink} to="/">
+        <Button color="inherit" size="small" component={RouterLink} to="/">
           Home
         </Button>
-        <Button color="inherit" component={RouterLink} to="/battle">
+        <Button color="inherit" size="small" component={RouterLink} to="/battle">
           Battle
         </Button>
-        <Button color="inherit" component={RouterLink} to="/stats">
+        <Button color="inherit" size="small" component={RouterLink} to="/stats">
           Stats
         </Button>
-        <Button color="inherit" component={RouterLink} to="/world">
+        <Button color="inherit" size="small" component={RouterLink} to="/world">
           World
         </Button>
-        <Button color="inherit" component={RouterLink} to="/story">
+        <Button color="inherit" size="small" component={RouterLink} to="/story">
           Story
         </Button>
-        <Button color="inherit" component={RouterLink} to="/inventory">
+        <Button
+          color="inherit"
+          size="small"
+          component={RouterLink}
+          to="/inventory"
+        >
           Inventory
         </Button>
       </Toolbar>
