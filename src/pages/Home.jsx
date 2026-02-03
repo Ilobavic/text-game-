@@ -99,6 +99,26 @@ export default function Home() {
                 <li>Storm Thread</li>
               </ul>
             </div>
+            <div className="preview-card demo">
+              <div className="preview-header">
+                <span>Decision Loop</span>
+                <span className="preview-pill">Explainer</span>
+              </div>
+              <div className="hammer-stage">
+                <div className="trigger-line" />
+                <div className="center-block" />
+                <div className="hammer hammer-left">
+                  <div className="hammer-head" />
+                  <div className="hammer-handle" />
+                  <div className="hammer-label">ACTION</div>
+                </div>
+                <div className="hammer hammer-right">
+                  <div className="hammer-head" />
+                  <div className="hammer-handle" />
+                  <div className="hammer-label">WORDS</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
