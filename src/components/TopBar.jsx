@@ -34,8 +34,15 @@ export default function TopBar() {
         borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
       }}
     >
-      <Toolbar sx={{ flexWrap: "wrap", gap: 1, py: 1 }}>
-        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+      <Toolbar
+        sx={{
+          flexWrap: "wrap",
+          gap: 1,
+          py: 1,
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
           <span className="app-logo">
             <img src={logo} alt="Abysspark logo" />
             Abysspark
