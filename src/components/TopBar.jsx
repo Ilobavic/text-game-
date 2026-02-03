@@ -34,6 +34,9 @@ export default function TopBar() {
         <Button color="inherit" component={RouterLink} to="/stats">
           Stats
         </Button>
+        <Button color="inherit" component={RouterLink} to="/world">
+          World
+        </Button>
         <Button color="inherit" component={RouterLink} to="/inventory">
           Inventory
         </Button>

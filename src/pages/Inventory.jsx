@@ -1,6 +1,7 @@
 import React from "react";
 
 export default function Inventory() {
+  const world = JSON.parse(localStorage.getItem("worldState") || "null");
   return (
     <div className="inventory-page">
       <div className="section-head">
@@ -21,18 +22,12 @@ export default function Inventory() {
         <div className="panel">
           <h3>Active Items</h3>
           <div className="inventory-list">
-            <div>
-              <p className="equip-name">Healing Scroll</p>
-              <span>Restores 18 HP</span>
-            </div>
-            <div>
-              <p className="equip-name">Salted Elixir</p>
-              <span>+2 stamina regen</span>
-            </div>
-            <div>
-              <p className="equip-name">Storm Thread</p>
-              <span>Boosts shock damage</span>
-            </div>
+            {(world?.inventory || []).map((item) => (
+              <div key={item.name}>
+                <p className="equip-name">{item.name}</p>
+                <span>x{item.qty}</span>
+              </div>
+            ))}
           </div>
         </div>
 
