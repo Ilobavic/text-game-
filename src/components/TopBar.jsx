@@ -45,7 +45,6 @@ export default function TopBar() {
         <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
           <span className="app-logo">
             <img src={logo} alt="Abysspark logo" />
-            Abysspark
           </span>
         </Typography>
 
