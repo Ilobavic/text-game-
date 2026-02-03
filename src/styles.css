@@ -25,6 +25,104 @@ body {
   height: 26px;
   display: block;
 }
+
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(12, 107, 255, 0.25),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 70% 10%,
+      rgba(33, 209, 162, 0.25),
+      transparent 45%
+    ),
+    linear-gradient(120deg, #0b1220 0%, #111827 100%);
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+.boot-orb {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #67e8f9,
+    #0c6bff 50%,
+    rgba(12, 107, 255, 0.2) 70%
+  );
+  box-shadow: 0 0 60px rgba(12, 107, 255, 0.5),
+    0 0 120px rgba(33, 209, 162, 0.35);
+  animation: orbPulse 1.6s ease-in-out infinite;
+}
+
+.boot-ring {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 2px solid rgba(99, 102, 241, 0.35);
+  box-shadow: 0 0 40px rgba(99, 102, 241, 0.35);
+  animation: ringSpin 2.6s linear infinite;
+}
+
+.boot-text {
+  position: absolute;
+  bottom: 18%;
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.boot-dots::after {
+  content: "...";
+  animation: dots 1.2s steps(3, end) infinite;
+}
+
+@keyframes orbPulse {
+  0% {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+  50% {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+  100% {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+}
+
+@keyframes ringSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  33% {
+    content: ".";
+  }
+  66% {
+    content: "..";
+  }
+  100% {
+    content: "...";
+  }
+}
 .app-root {
   display: flex;
   flex-direction: column;
