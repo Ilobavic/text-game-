@@ -1,20 +1,10 @@
 import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import Drawer from "@mui/material/Drawer";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link as RouterLink } from "react-router-dom";
+import { Navbar, Nav, Container, Offcanvas, Button } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 import logo from "../assets/logo.svg";
 
 export default function TopBar() {
-  const [open, setOpen] = useState(false);
+  const [show, setShow] = useState(false);
   const links = [
     { label: "Home", to: "/" },
     { label: "Battle", to: "/battle" },
@@ -25,65 +15,41 @@ export default function TopBar() {
   ];
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        background: "#f8fafc",
-        color: "inherit",
-        boxShadow: "none",
-        borderBottom: "1px solid rgba(15, 23, 42, 0.08)",
-      }}
-    >
-      <Toolbar
-        sx={{
-          flexWrap: "wrap",
-          gap: 1,
-          py: 1,
-          justifyContent: "space-between",
-        }}
-      >
-        <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
+    <Navbar bg="light" expand="lg" className="border-bottom">
+      <Container>
+        <Navbar.Brand>
           <span className="app-logo">
             <img src={logo} alt="Abysspark logo" />
           </span>
-        </Typography>
-
-        <div className="nav-links">
-          {links.map((link) => (
-            <Button
-              key={link.to}
-              color="inherit"
-              size="small"
-              component={RouterLink}
-              to={link.to}
-            >
-              {link.label}
-            </Button>
-          ))}
-        </div>
-        <IconButton
-          className="nav-toggle"
-          color="inherit"
-          onClick={() => setOpen(true)}
-        >
-          <MenuIcon />
-        </IconButton>
-      </Toolbar>
-      <Drawer anchor="right" open={open} onClose={() => setOpen(false)}>
-        <List sx={{ width: 220 }}>
-          {links.map((link) => (
-            <ListItem key={link.to} disablePadding>
-              <ListItemButton
-                component={RouterLink}
-                to={link.to}
-                onClick={() => setOpen(false)}
-              >
-                <ListItemText primary={link.label} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
-    </AppBar>
+        </Navbar.Brand>
+        <Navbar.Toggle
+          aria-controls="basic-navbar-nav"
+          onClick={() => setShow(true)}
+        />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            {links.map((link) => (
+              <LinkContainer key={link.to} to={link.to}>
+                <Nav.Link>{link.label}</Nav.Link>
+              </LinkContainer>
+            ))}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+      <Offcanvas show={show} onHide={() => setShow(false)} placement="end">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title>Menu</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <Nav className="flex-column">
+            {links.map((link) => (
+              <LinkContainer key={link.to} to={link.to}>
+                <Nav.Link onClick={() => setShow(false)}>{link.label}</Nav.Link>
+              </LinkContainer>
+            ))}
+          </Nav>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </Navbar>
   );
 }

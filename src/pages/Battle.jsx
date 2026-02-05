@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "@mui/material/Button";
+import { Button, Card, ProgressBar, Badge } from "react-bootstrap";
 
 import {
   createDefaultPlayer,
@@ -165,7 +165,9 @@ export default function Battle() {
               <div className="stat-track">
                 <span
                   style={{
-                    width: `${(player.health / (player.maxHealth || 40)) * 100}%`,
+                    width: `${
+                      (player.health / (player.maxHealth || 40)) * 100
+                    }%`,
                   }}
                 />
               </div>
@@ -183,72 +185,71 @@ export default function Battle() {
               </div>
             </div>
           </div>
-              <div className="stat-row">
-                <div>
-                  <div className="stat-label">Armor</div>
-                  <div className="stat-value">{player.armor}</div>
-                </div>
-                <div>
-                  <div className="stat-label">Stamina</div>
-                  <div className="stat-value">
-                    {player.stamina}/{player.maxStamina ?? 10}
-                  </div>
-                </div>
-                <div>
-                  <div className="stat-label">Shield</div>
-                  <div className="stat-value">{player.shield || 0}</div>
-                </div>
-                <div>
-                  <div className="stat-label">Level</div>
-                  <div className="stat-value">{player.level}</div>
-                </div>
+          <div className="stat-row">
+            <div>
+              <div className="stat-label">Armor</div>
+              <div className="stat-value">{player.armor}</div>
+            </div>
+            <div>
+              <div className="stat-label">Stamina</div>
+              <div className="stat-value">
+                {player.stamina}/{player.maxStamina ?? 10}
               </div>
-              <div className="stat-block">
-                <div>
-                  <div className="stat-label">XP</div>
-                  <div className="stat-track">
-                    <span
-                      style={{
-                        width: `${
-                          (player.xp / (player.nextLevelXp || 1)) * 100
-                        }%`,
-                      }}
-                    />
-                  </div>
-                </div>
-                <div className="stat-value subtle">
-                  {player.xp}/{player.nextLevelXp} XP
-                </div>
+            </div>
+            <div>
+              <div className="stat-label">Shield</div>
+              <div className="stat-value">{player.shield || 0}</div>
+            </div>
+            <div>
+              <div className="stat-label">Level</div>
+              <div className="stat-value">{player.level}</div>
+            </div>
+          </div>
+          <div className="stat-block">
+            <div>
+              <div className="stat-label">XP</div>
+              <div className="stat-track">
+                <span
+                  style={{
+                    width: `${(player.xp / (player.nextLevelXp || 1)) * 100}%`,
+                  }}
+                />
               </div>
-              <div className="status-row">
-                {(player.statuses || []).length === 0 && (
-                  <span className="status-chip muted">No effects</span>
-                )}
-                {(player.statuses || []).map((s) => (
-                  <span key={s.type} className="status-chip">
-                    {s.type} {s.turns}
-                  </span>
-                ))}
-              </div>
+            </div>
+            <div className="stat-value subtle">
+              {player.xp}/{player.nextLevelXp} XP
+            </div>
+          </div>
+          <div className="status-row">
+            {(player.statuses || []).length === 0 && (
+              <span className="status-chip muted">No effects</span>
+            )}
+            {(player.statuses || []).map((s) => (
+              <span key={s.type} className="status-chip">
+                {s.type} {s.turns}
+              </span>
+            ))}
+          </div>
 
-              <div className="action-grid">
-                {player.skills.map((s) => (
-                  <Button
-                    key={s.name}
-                    variant="contained"
-                    onClick={() => useSkill(s)}
-                    disabled={player.health <= 0}
-                  >
-                    <div className="action-title">{s.name}</div>
-                    <div className="action-meta">
-                      {s.damage ? `${s.damage} dmg` : "Support"}{" "}
-                      {s.cost ? `· ${s.cost} stam` : ""}{" "}
-                      {s.cooldown ? `· CD ${s.cooldown}` : ""}
-                      {s.cd ? ` · ${s.cd} left` : ""}
-                    </div>
-                  </Button>
-                ))}
-              </div>
+          <div className="action-grid">
+            {player.skills.map((s, index) => (
+              <Button
+                key={s.name}
+                variant="primary"
+                onClick={() => useSkill(s)}
+                disabled={player.health <= 0}
+                className={index === 0 ? "insane-btn" : ""}
+              >
+                <div className="action-title">{s.name}</div>
+                <div className="action-meta">
+                  {s.damage ? `${s.damage} dmg` : "Support"}{" "}
+                  {s.cost ? `· ${s.cost} stam` : ""}{" "}
+                  {s.cooldown ? `· CD ${s.cooldown}` : ""}
+                  {s.cd ? ` · ${s.cd} left` : ""}
+                </div>
+              </Button>
+            ))}
+          </div>
         </section>
 
         <section className="panel enemy">

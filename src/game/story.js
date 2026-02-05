@@ -18,7 +18,7 @@ const nodes = {
       },
     ],
   },
-  depth-01: {
+  "depth-01": {
     id: "depth-01",
     title: "Brine Oath",
     text: "The Depth Guild asks for silence and precision. They offer a stealth route.",
@@ -37,7 +37,7 @@ const nodes = {
       },
     ],
   },
-  spark-01: {
+  "spark-01": {
     id: "spark-01",
     title: "Spark Rite",
     text: "The Spark Order wants a daring approach. They promise power at a cost.",
